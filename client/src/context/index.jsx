@@ -93,7 +93,9 @@ export const GlobalContextProvider = ({ children }) => {
       setContract(newContract);
     };
 
-    setSmartContractAndProvider();
+    const timer = setTimeout(() => setSmartContractAndProvider(), 300);
+
+    return () => clearTimeout(timer);
   }, []);
 
   //* Activate event listeners for the smart contract
